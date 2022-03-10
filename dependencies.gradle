@@ -1,0 +1,81 @@
+ext {
+    // Android
+    kotlinVersion = "1.4.21"
+    materialVersion = "1.2.0"
+    appCompatVersion = "1.2.0"
+    lifecycleVersion = "2.2.0"
+    navigationVersion = "2.3.1"
+    androidxCoreVersion = "1.3.0"
+    constraintlayoutVersion = "1.1.3"
+    androidAnnotationVersion = "1.1.0"
+    securityCryptoVersion = "1.1.0-alpha03"
+
+    // Libraries
+    gsonVersion = "2.8.6"
+    daggerVersion = "2.27"
+    retrofitVersion = "2.9.0"
+    apolloVersion =  "2.5.2"
+    roomVersion = "2.3.0"
+    groupieVersion = "2.9.0"
+    logginInterceptorVersion = "4.7.2"
+
+    // RxJava
+    rxAndroidVersion = "3.0.0"
+    rxJavaVersion = "3.0.0"
+    rxKotlinVersion = "3.0.0"
+
+    // Testing
+    junitVersion = "4.13"
+    mockkVersion = "1.10.4"
+    junitExtVersion = "1.1.1"
+    coroutinesVersion = "1.4.2"
+    coreTestingVersion = "2.1.0"
+    espressoCoreVersion = "3.2.0"
+    mockitoKotlinVersion = "2.2.0"
+
+    mainLibraries = [
+        kotlinStandardLib: "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion",
+        androidCoreKtx: "androidx.core:core-ktx:$androidxCoreVersion",
+        androidCompat: "androidx.appcompat:appcompat:$appCompatVersion",
+        securityCrypto: "androidx.security:security-crypto:$securityCryptoVersion",
+        material: "com.google.android.material:material:$materialVersion",
+        dagger: "com.google.dagger:dagger:$daggerVersion",
+        daggerAndroid: "com.google.dagger:dagger-android:$daggerVersion",
+        daggerSupport: "com.google.dagger:dagger-android-support:$daggerVersion",
+        daggerProcessor: "com.google.dagger:dagger-android-processor:$daggerVersion",
+        daggerCompiler: "com.google.dagger:dagger-compiler:$daggerVersion",
+        gson: "com.google.code.gson:gson:$gsonVersion",
+        retrofit: "com.squareup.retrofit2:retrofit:$retrofitVersion",
+        logginInterceptor: "com.squareup.okhttp3:logging-interceptor:$logginInterceptorVersion",
+        retrofitGson: "com.squareup.retrofit2:converter-gson:$retrofitVersion",
+        retrofitRxJava: "com.squareup.retrofit2:adapter-rxjava3:$retrofitVersion",
+        constraintlayout: "androidx.constraintlayout:constraintlayout:$constraintlayoutVersion",
+        lifecycleExtensions: "androidx.lifecycle:lifecycle-extensions:$lifecycleVersion",
+        fragmentKtx: "androidx.navigation:navigation-fragment-ktx:$navigationVersion",
+        navigationUiKtx: "androidx.navigation:navigation-ui-ktx:$navigationVersion",
+        androidAnnotation: "androidx.annotation:annotation:$androidAnnotationVersion",
+        lifecycleViewModelKtx: "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion",
+        lifecycleLiveDataKtx: "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion",
+        apolloRuntime: "com.apollographql.apollo:apollo-runtime:$apolloVersion",
+        apolloCoroutines: "com.apollographql.apollo:apollo-coroutines-support:$apolloVersion",
+        roomKtx: "androidx.room:room-ktx:$roomVersion",
+        roomKaptCompiler: "androidx.room:room-compiler:$roomVersion",
+        roomTesting: "androidx.room:room-testing:$roomVersion",
+        roomRxJava3: "androidx.room:room-rxjava3:$roomVersion",
+        groupieRecyclerView: "com.github.lisawray.groupie:groupie:$groupieVersion",
+        groupieViewBinding: "com.github.lisawray.groupie:groupie-viewbinding:$groupieVersion",
+        rxJava: "io.reactivex.rxjava3:rxjava:$rxJavaVersion",
+        rxAndroid: "io.reactivex.rxjava3:rxandroid:$rxAndroidVersion",
+        rxKotlin: "io.reactivex.rxjava3:rxkotlin:$rxKotlinVersion"
+    ]
+
+    testLibraries = [
+        junit: "junit:junit:$junitVersion",
+        mockk: "io.mockk:mockk:$mockkVersion",
+        coreTesting: "androidx.arch.core:core-testing:$coreTestingVersion",
+        coroutinesTest: "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion",
+        junitAndroidX: "androidx.test.ext:junit:$junitExtVersion",
+        espresso: "androidx.test.espresso:espresso-core:$espressoCoreVersion",
+        mockitoKotlin: "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoKotlinVersion"
+    ]
+}

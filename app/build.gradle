@@ -1,0 +1,88 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'androidx.navigation.safeargs.kotlin'
+}
+
+android {
+    compileSdk 31
+
+    defaultConfig {
+        applicationId "com.share.dogbreeds"
+        minSdk 24
+        targetSdk 31
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    buildFeatures {
+        dataBinding true
+        viewBinding true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation project(':domain')
+    implementation project(':data')
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
+    def testDependencies = rootProject.ext.testLibraries
+    def applicationDependencies = rootProject.ext.mainLibraries
+
+    implementation applicationDependencies.kotlinStandardLib
+    implementation applicationDependencies.androidCompat
+    implementation applicationDependencies.androidCoreKtx
+    implementation applicationDependencies.material
+    implementation applicationDependencies.constraintlayout
+    implementation applicationDependencies.lifecycleExtensions
+    implementation applicationDependencies.fragmentKtx
+    implementation applicationDependencies.navigationUiKtx
+    implementation applicationDependencies.androidAnnotation
+    implementation applicationDependencies.daggerAndroid
+    implementation applicationDependencies.daggerSupport
+    implementation applicationDependencies.lifecycleViewModelKtx
+    implementation applicationDependencies.lifecycleLiveDataKtx
+    implementation applicationDependencies.retrofit
+    implementation applicationDependencies.retrofitGson
+    implementation applicationDependencies.rxJava
+    implementation applicationDependencies.rxKotlin
+    implementation applicationDependencies.rxAndroid
+    // if you use the support libraries
+    kapt applicationDependencies.daggerProcessor
+    kapt applicationDependencies.daggerCompiler
+
+    implementation "com.github.bumptech.glide:glide:$glide_version"
+    annotationProcessor "com.github.bumptech.glide:compiler:$glide_version"
+    kapt "com.github.bumptech.glide:compiler:$glide_version"
+    implementation("androidx.constraintlayout:constraintlayout:2.1.3")
+
+    testImplementation testDependencies.junit
+    testImplementation testDependencies.mockk
+    testImplementation testDependencies.coreTesting
+    testImplementation testDependencies.mockitoKotlin
+    androidTestImplementation testDependencies.junitAndroidX
+    androidTestImplementation testDependencies.espresso
+    testImplementation 'org.mockito:mockito-inline:2.13.0'
+    testImplementation "androidx.arch.core:core-testing:2.1.0"
+}

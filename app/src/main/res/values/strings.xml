@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">ShareApplication</string>
+    <string name="app_bar_title">Dog breeds App</string>
+    <string name="button_favorites">See all favorite pictures</string>
+    <string name="dog_breed_screen">Dog Breeds</string>
+    <string name="dog_sub_breed_screen">Dog SubBreeds</string>
+    <string name="dog_breeds_image_screen">Dog Pictures</string>
+    <string name="set_favorite_success">Like/Unlike picture is success</string>
+    <string name="set_favorite_unsuccess">Like/Unlike picture got an error!</string>
+    <string name="try_again">Try again!!!</string>
+    <string name="favorites_screen">Favorite pictures</string>
+    <string name="no_images">No pictures were found!!</string>
+    <string name="no_data_found">No data found</string>
+</resources>

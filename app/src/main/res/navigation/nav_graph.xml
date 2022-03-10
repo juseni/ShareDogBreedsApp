@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/MainFragment">
+
+    <fragment
+        android:id="@+id/MainFragment"
+        android:name="com.share.dogbreeds.ui.fragments.MainFragment"
+        android:label="@string/dog_breed_screen"
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/action_MainFragment_to_DogSubBreedFragment"
+            app:destination="@id/dogSubBreedFragment" />
+        <action
+            android:id="@+id/action_MainFragment_to_ImageFragment"
+            app:destination="@id/dogBreedImageFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/dogSubBreedFragment"
+        android:name="com.share.dogbreeds.ui.fragments.DogSubBreedsFragment"
+        android:label="@string/dog_sub_breed_screen"
+        tools:layout="@layout/fragment_dog_sub_breeds">
+        <action
+            android:id="@+id/action_DogSubBreedFragment_to_ImageFragment"
+            app:destination="@id/dogBreedImageFragment" />
+        <argument
+            android:name="dogBreedParam"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/dogBreedImageFragment"
+        android:name="com.share.dogbreeds.ui.fragments.DogImagesFragment"
+        android:label="@string/dog_breeds_image_screen"
+        tools:layout="@layout/fragment_dog_images">
+        <argument
+            android:name="dogBreedParam"
+            app:argType="string"/>
+        <argument
+            android:name="dogBreedIdParam"
+            app:argType="integer"/>
+        <argument
+            android:name="dogSubBreedParam"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="showOnlyFavoritesParam"
+            app:argType="boolean"/>
+    </fragment>
+</navigation>

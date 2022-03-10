@@ -1,0 +1,76 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'com.apollographql.apollo'
+}
+
+android {
+    compileSdk 31
+
+    defaultConfig {
+        minSdk 24
+        targetSdk 31
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+        buildConfigField "String", "SERVER_URL", "\"https://dog.ceo/api/\""
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(':domain')
+
+    def applicationDependencies = rootProject.ext.mainLibraries
+    def testDependencies = rootProject.ext.testLibraries
+
+    implementation applicationDependencies.kotlinStandardLib
+    implementation applicationDependencies.gson
+    implementation applicationDependencies.retrofit
+    implementation applicationDependencies.retrofitGson
+    implementation applicationDependencies.dagger
+    implementation applicationDependencies.logginInterceptor
+    implementation applicationDependencies.apolloRuntime
+    implementation applicationDependencies.securityCrypto
+    implementation applicationDependencies.lifecycleViewModelKtx
+    implementation applicationDependencies.lifecycleLiveDataKtx
+    implementation applicationDependencies.rxJava
+    implementation applicationDependencies.rxKotlin
+    implementation applicationDependencies.rxAndroid
+    implementation applicationDependencies.roomRxJava3
+    implementation applicationDependencies.retrofitRxJava
+
+    api applicationDependencies.roomKtx
+    kapt applicationDependencies.roomKaptCompiler
+    androidTestImplementation applicationDependencies.roomTesting
+
+    kapt applicationDependencies.daggerCompiler
+
+    testImplementation testDependencies.junit
+    testImplementation testDependencies.mockk
+    testImplementation testDependencies.coreTesting
+    testImplementation testDependencies.mockitoKotlin
+    androidTestImplementation testDependencies.junitAndroidX
+    androidTestImplementation testDependencies.espresso
+    testImplementation 'org.mockito:mockito-inline:2.13.0'
+}
+
+sourceCompatibility = "8"
+targetCompatibility = "8"
