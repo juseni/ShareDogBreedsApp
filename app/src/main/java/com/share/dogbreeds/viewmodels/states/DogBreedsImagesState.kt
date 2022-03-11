@@ -7,7 +7,7 @@ import com.share.domain.model.DogBreedImage
  */
 sealed class DogBreedsImagesState {
 
-    data class UpdateDogBreeds(val dogBreeds: List<DogBreedImage>) : DogBreedsImagesState()
+    data class UpdateDogImages(val dogImages: List<DogBreedImage>) : DogBreedsImagesState()
 
     object NoImagesToShow : DogBreedsImagesState()
 

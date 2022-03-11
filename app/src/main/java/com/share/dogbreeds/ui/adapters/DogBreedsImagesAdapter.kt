@@ -2,6 +2,8 @@ package com.share.dogbreeds.ui.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.constraintlayout.motion.widget.MotionLayout
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.share.dogbreeds.R
 import com.share.dogbreeds.databinding.ViewDogBreedImageItemBinding
@@ -21,18 +23,51 @@ class DogBreedsImagesAdapter(
         fun bind(position: Int) {
             val item = getItem(position)
             binding.apply {
+                binding.imageViewFavorite.clearAnimation()
+                binding.imageViewFavorite.setImageDrawable(null)
                 loadImageFromUrl(root.context, imageViewBreed, item.imageUrl)
-                imageViewFavorite.setImageResource(
-                    if (item.isFavorite) {
-                        R.drawable.ic_liked_breed
-                    } else  {
-                        R.drawable.ic_unliked_breed
-                    }
+                imageViewFavorite.setImageDrawable(
+                    ContextCompat.getDrawable(root.context,
+                        if (item.isFavorite) {
+                            R.drawable.ic_liked_breed
+                        } else  {
+                            R.drawable.ic_unliked_breed
+                        }
+                    )
                 )
                 root.setOnClickListener {
                     onSelected.invoke(item)
                     if (item.isFavorite.not()) {
                         constraintLayout2.transitionToEnd()
+                        constraintLayout2.addTransitionListener(object: MotionLayout.TransitionListener{
+                            override fun onTransitionStarted(
+                                motionLayout: MotionLayout?,
+                                startId: Int,
+                                endId: Int
+                            ) = Unit
+
+                            override fun onTransitionChange(
+                                motionLayout: MotionLayout?,
+                                startId: Int,
+                                endId: Int,
+                                progress: Float
+                            ) = Unit
+
+                            override fun onTransitionCompleted(
+                                motionLayout: MotionLayout?,
+                                currentId: Int
+                            ) {
+                                notifyDataSetChanged()
+                            }
+
+                            override fun onTransitionTrigger(
+                                motionLayout: MotionLayout?,
+                                triggerId: Int,
+                                positive: Boolean,
+                                progress: Float
+                            ) = Unit
+
+                        })
                     } else {
                         imageViewFavorite.setImageResource( R.drawable.ic_unliked_breed)
                         notifyDataSetChanged()

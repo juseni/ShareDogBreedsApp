@@ -20,7 +20,7 @@ class DogBreedsImageViewModel @Inject constructor(
 ) : ViewModel(), LifecycleObserver {
 
     private val publishSubject = PublishSubject.create<DogBreedsImagesState>()
-    fun observeDogBreeds(): Observable<DogBreedsImagesState> = publishSubject.hide()
+    fun observeDogImages(): Observable<DogBreedsImagesState> = publishSubject.hide()
     val setFavoriteMutableLiveData = MutableLiveData<Boolean>()
 
     fun getDogImages(
@@ -60,7 +60,7 @@ class DogBreedsImageViewModel @Inject constructor(
                 if (result.data.isEmpty()) {
                     publishSubject.onNext(DogBreedsImagesState.NoImagesToShow)
                 } else {
-                    publishSubject.onNext(DogBreedsImagesState.UpdateDogBreeds(result.data))
+                    publishSubject.onNext(DogBreedsImagesState.UpdateDogImages(result.data))
                 }
             }
             is Result.Error -> publishSubject.onNext(DogBreedsImagesState.OnError(result.exception))

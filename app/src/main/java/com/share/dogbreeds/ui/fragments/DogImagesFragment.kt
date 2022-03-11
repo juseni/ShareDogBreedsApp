@@ -102,11 +102,11 @@ class DogImagesFragment : DaggerFragment() {
     }
 
     private fun setupObservers() {
-        viewModel.observeDogBreeds()
+        viewModel.observeDogImages()
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
                 when (it) {
-                    is DogBreedsImagesState.UpdateDogBreeds -> setupImages(it.dogBreeds)
+                    is DogBreedsImagesState.UpdateDogImages -> setupImages(it.dogImages)
                     is DogBreedsImagesState.NoImagesToShow -> setupNoImagesContainer()
                     is DogBreedsImagesState.OnError -> setupError()
                 }

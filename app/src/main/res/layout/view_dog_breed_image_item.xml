@@ -9,8 +9,8 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
-        android:layout_width="@dimen/dimen_120dp"
-        android:layout_height="@dimen/dimen_120dp"
+        android:layout_width="@dimen/dimen_100"
+        android:layout_height="@dimen/dimen_100"
         app:cardBackgroundColor="@color/teal_200"
         app:cardCornerRadius="@dimen/dimen_8dp"
         app:cardElevation="@dimen/dimen_4dp"
@@ -42,7 +42,7 @@
                 android:layout_marginTop="@dimen/dimen_4dp"
                 android:layout_marginEnd="@dimen/dimen_4dp"
                 android:background="@drawable/background_favorite_heart"
-                android:src="@drawable/ic_unliked_breed"
+                app:srcCompat="@drawable/ic_unliked_breed"
                 app:altSrc="@drawable/ic_liked_breed"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
