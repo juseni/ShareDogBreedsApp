@@ -15,7 +15,7 @@ ext {
     daggerVersion = "2.27"
     retrofitVersion = "2.9.0"
     apolloVersion =  "2.5.2"
-    roomVersion = "2.3.0"
+    roomVersion = "2.4.0-alpha03"
     groupieVersion = "2.9.0"
     logginInterceptorVersion = "4.7.2"
 
